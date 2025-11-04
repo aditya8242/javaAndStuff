@@ -1,7 +1,15 @@
 import javax.swing.*;
 import java.awt.event.*;
 
-class EventHandling1
+class MarvellousListener implements ActionListener
+{
+	public void actionPerformed(ActionEvent aobj)
+	{
+		JOptionPane.showMessageDialog(null, "Button Clicked...");
+	}
+}
+
+class EventHandlingSeparateClassXX
 {
 	public static void main(String A[])
 	{
@@ -9,13 +17,9 @@ class EventHandling1
 		JButton bobj = new JButton("OK");
 		
 		bobj.setBounds(100,100,150,50);
-
-		bobj.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent aobj)
-			{
-				System.out.println("Button clicked...");
-			}
-		});
+		
+		MarvellousListener mobj = new MarvellousListener();
+		bobj.addActionListener(mobj);
 
 		fobj.add(bobj);
 		
